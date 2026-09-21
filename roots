@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آية مباركة</title>
+    <style>
+        body {
+            font-family: 'Amiri', 'Traditional Arabic', serif, sans-serif;
+            background: linear-gradient(135deg, #f4eade, #e3d3c2);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .card {
+            background: #fffdf9;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #dcd0c0;
+        }
+        /* رسمة الشجرة والجذور في خلفية الكارت */
+        .tree-bg {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 160px;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        .ayah {
+            font-size: 24px;
+            color: #3b302a;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .surah {
+            font-size: 18px;
+            color: #8c7355;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- رسمة الشجرة والجذور بتقنية SVG -->
+        <svg class="tree-bg" viewBox="0 0 240 240" fill="currentColor">
+            <!-- الجذور -->
+            <path d="M120,150 C120,150 100,180 80,185 C70,187 60,180 50,185 C45,187 43,195 40,200 C60,200 80,190 95,175 C105,165 115,155 120,150 Z" />
+            <path d="M120,150 C120,150 140,180 160,185 C170,187 180,180 190,185 C195,187 197,195 200,200 C180,200 160,190 145,175 C135,165 125,155 120,150 Z" />
+            <path d="M115,170 C115,170 110,200 100,210 C95,215 90,218 85,220 C95,220 105,215 112,205 C116,200 118,185 119,175 Z" />
+            <path d="M125,170 C125,170 130,200 140,210 C145,215 150,218 155,220 C145,220 135,215 128,205 C124,200 122,185 121,175 Z" />
+            <!-- جذع الشجرة -->
+            <path d="M110,100 L110,160 C110,165 114,170 120,170 C126,170 130,165 130,160 L130,100 Z" />
+            <!-- الفروع والأوراق -->
+            <circle cx="120" cy="70" r="50" />
+            <circle cx="90" cy="85" r="35" />
+            <circle cx="150" cy="85" r="35" />
+            <circle cx="120" cy="40" r="35" />
+        </svg>
+
+        <div id="ayah-text" class="ayah">جاري تحميل الآية...</div>
+        <div id="surah-name" class="surah"></div>
+    </div>
+
+    <script>
+        const ayahs = [
+            { text: "حِينَئِذٍ امْتَلَأَتْ أَفْوَاهُنَا ضَحِكًا، وَأَلْسِنَتُنَا تَرَنُّمًا. حِينَئِذٍ قَالُوا بَيْنَ الأُمَمِ: إِنَّ الرَّبَّ قَدْ عَظَّمَ الْعَمَلَ مَعَ هؤُلاَءِ", surah: "سفر المزامير 126: 2" },
+            { text: "فَرِحِينَ فِي الرَّجَاءِ، صَابِرِينَ فِي الضِّيقِ، مُواظِبِينَ عَلَى الصَّلَاةِ", surah: "رسالة بولس الرسول إلى أهل رومية 12: 12" },
+            { text: "فَرِّحْ نَفْسَ عَبْدِكَ، لِأَنِّي إِلَيْكَ يَا رَبُّ أَرْفَعُ نَفْسِي", surah: "سفر المزامير 86: 4" }
+        ];
+
+        function showRandomAyah() {
+            const randomIndex = Math.floor(Math.random() * ayahs.length);
+            const selected = ayahs[randomIndex];
+            
+            document.getElementById('ayah-text').innerText = `"${selected.text}"`;
+            document.getElementById('surah-name').innerText = selected.surah;
+        }
+
+        window.onload = showRandomAyah;
+    </script>
+
+</body>
+</html>
